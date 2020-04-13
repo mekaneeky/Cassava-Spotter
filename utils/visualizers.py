@@ -9,6 +9,19 @@ from scipy.io import wavfile
 from scipy.signal import butter, lfilter
 import scipy.ndimage
 
+###  Parameters ###
+fft_size = 2048  # window size for the FFT
+step_size = fft_size // 16  # distance to slide along the window (in time)
+spec_thresh = 4  # threshold for spectrograms (lower filters out more noise)
+lowcut = 500  # Hz # Low cut for our butter bandpass filter
+highcut = 15000  # Hz # High cut for our butter bandpass filter
+# For mels
+n_mel_freq_components = 64  # number of mel frequency channels
+shorten_factor = 10  # how much should we compress the x-axis (time)
+start_freq = 300  # Hz # What frequency to start sampling our melS from
+end_freq = 8000  # Hz # What frequency to stop sampling our melS from
+
+
 def butter_bandpass(lowcut, highcut, fs, order=5):
     nyq = 0.5 * fs
     low = lowcut / nyq
