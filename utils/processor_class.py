@@ -53,15 +53,15 @@ class DataProcessor():
 
     def generate_dir_spectrograms(self):
 
-        for train_wavfl in tqdm(self.train_wavfiles):
+        for train_wavfl in tqdm(self.train_wavfiles, position=0, leave=True):
           generate_mel_spectogram(train_wavfl)
           
         if self.val_dir:
-            for val_wavfl in tqdm(self.val_wavfiles):
+            for val_wavfl in tqdm(self.val_wavfiles, position=0, leave=True):
               generate_mel_spectogram(val_wavfl)
         
         if self.test_dir:
-            for test_wavfl in tqdm(self.test_wavfiles):
+            for test_wavfl in tqdm(self.test_wavfiles, position=0, leave=True):
               generate_mel_spectogram(test_wavfl)
 
 
