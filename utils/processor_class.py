@@ -65,3 +65,22 @@ class DataProcessor():
               generate_mel_spectogram(test_wavfl)
 
 
+    def purge_wav_files(self):
+        for filepath in self.train_wavfiles:
+            if filepath.lower().endswith('.wav'):
+                os.remove(filepath)
+
+        
+
+        if self.val_dir: 
+            for filepath in self.val_wavfiles:
+                if filepath.lower().endswith('.wav'):
+                    os.remove(filepath)
+
+
+        if self.test_dir:
+
+            for filepath in self.test_wavfiles:
+                if filepath.lower().endswith('.wav'):
+                    os.remove(filepath)
+
