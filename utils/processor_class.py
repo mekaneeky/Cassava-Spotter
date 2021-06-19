@@ -1,7 +1,7 @@
 
 import os
 from .visualizers import generate_mel_spectogram
-from tqdm import tqdm
+from tqdm.notebook import tqdm
 
 class DataProcessor():
 
