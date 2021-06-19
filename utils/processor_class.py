@@ -50,7 +50,7 @@ class DataProcessor():
                 os.system("ffmpeg -y -i {0} {0}".format(filename))
 
 
-    def generate_dir_spectrograms(self,main_dir, val_dir = None, test_dir = None):
+    def generate_dir_spectrograms(self):
 
         for train_wavfl in self.train_wavfiles:
           generate_mel_spectogram(train_wavfl)
