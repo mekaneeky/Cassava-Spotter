@@ -2,6 +2,7 @@ import IPython.display
 from ipywidgets import interact, interactive, fixed
 
 # Packages we're using
+import imageio
 import numpy as np
 import matplotlib.pyplot as plt
 import copy
@@ -383,17 +384,16 @@ def generate_mel_spectogram(mywav):
     end_freq=end_freq,
   )
   mel_spec = make_mel(wav_spectrogram, mel_filter, shorten_factor=shorten_factor)
-  fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(20, 4))
-  cax = ax.matshow(
-      mel_spec.astype("float32"),
-      interpolation="nearest",
-      aspect="auto",
-      cmap=plt.cm.afmhot,
-      origin="lower",
-  )
-  plt.axis('off')
+  """fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(20, 4))
+    cax = ax.matshow(
+        mel_spec.astype("float32"),
+        interpolation="nearest",
+        aspect="auto",
+        cmap=plt.cm.afmhot,
+        origin="lower",
+    )
+  plt.axis('off')"""#Can be used for display 
   path_to_file = mywav.split('.')[0]
   savename = path_to_file + '.png'
-  plt.savefig(savename, bbox_inches=0, transparent=True)
-  plt.close(fig)
-
+  imageio.imwrite(savename, mel_spec)
+  
