@@ -308,7 +308,7 @@ def mel2hz(mel):
     return 700 * (10 ** (mel / 2595.0) - 1)
 
 
-def get_filterbanks(nfilt=20, nfft=512, samplerate=16000, lowfreq=0, highfreq=None):
+def get_filterbanks(nfilt=20, nfft=512, samplerate=32000, lowfreq=0, highfreq=None):
     """Compute a Mel-filterbank. The filters are stored in the rows, the columns correspond
     to fft bins. The filters are returned as an array of size nfilt * (nfft/2 + 1)
     :param nfilt: the number of filters in the filterbank, default 20.
